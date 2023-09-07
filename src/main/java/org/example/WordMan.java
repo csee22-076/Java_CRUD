@@ -12,6 +12,7 @@ public class WordMan {
         while(true){
             printMenu();
             byte menu = selectMenu();
+            System.out.println();
             if(menu ==0) break;
             else if(menu ==1){
 
@@ -36,6 +37,7 @@ public class WordMan {
             }
             else continue;
         }
+        System.out.println();
     }
 
     public void printMenu(){

@@ -16,6 +16,7 @@ public class WordCRUD implements ICRUD{
             System.out.print("=> 난이도(1,2,3) & 새 단어 입력: ");
             byte dif = s.nextByte();
             String newWord = s.next();
+            s.nextLine(); //버퍼 비우기
             System.out.print("뜻 입력: ");
             String meaning = s.nextLine();
             w.add(new Word(dif, newWord, meaning));
