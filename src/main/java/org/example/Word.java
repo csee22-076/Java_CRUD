@@ -1,31 +1,39 @@
 package org.example;
-import java.util.ArrayList;
 public class Word {
-    private ArrayList<Byte> dif = new ArrayList<>();
-    private ArrayList<String> newWord = new ArrayList<>();
-    private ArrayList<String> meaning = new ArrayList<>();
+    private byte difficulty;
+    private int number;
+    private String newWord;
+    private String meaning;
 
-    public ArrayList<Byte> getDif() {
-        return dif;
+    public byte getDifficulty() {
+        return difficulty;
     }
 
-    public ArrayList<String> getNewWord() {
+    public void setDifficulty(byte difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getNewWord() {
         return newWord;
     }
 
-    public ArrayList<String> getMeaning() {
-        return meaning;
-    }
-
-    public void setDif(ArrayList<Byte> dif) {
-        this.dif = dif;
-    }
-
-    public void setNewWord(ArrayList<String> newWord) {
+    public void setNewWord(String newWord) {
         this.newWord = newWord;
     }
 
-    public void setMeaning(ArrayList<String> meaning) {
+    public String getMeaning() {
+        return meaning;
+    }
+
+    public void setMeaning(String meaning) {
         this.meaning = meaning;
     }
 }

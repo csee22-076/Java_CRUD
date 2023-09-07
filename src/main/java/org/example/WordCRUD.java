@@ -1,6 +1,14 @@
 package org.example;
 
+import java.util.Scanner;
+import java.util.ArrayList;
 public class WordCRUD implements ICRUD{
+    ArrayList<Word> w;
+    Scanner s;
+    WordCRUD(Scanner s){
+        this.s = s;
+        w = new ArrayList<>();
+    }
     @Override
     public int add() {
 
