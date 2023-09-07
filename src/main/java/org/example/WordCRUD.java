@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class WordCRUD implements ICRUD{
     ArrayList<Word> w;
     Scanner s;
-    private int i; //반복문
+    int i; //반복문
 
     WordCRUD(Scanner s){
         this.s = s;
