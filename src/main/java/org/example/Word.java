@@ -1,24 +1,21 @@
 package org.example;
 public class Word {
     private byte difficulty;
-    private int number;
     private String newWord;
     private String meaning;
 
+    Word(){}
+    Word(byte difficulty, String newWord, String meaning){
+        this.difficulty = difficulty;
+        this.newWord = newWord;
+        this.meaning = meaning;
+    }
     public byte getDifficulty() {
         return difficulty;
     }
 
     public void setDifficulty(byte difficulty) {
         this.difficulty = difficulty;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public String getNewWord() {

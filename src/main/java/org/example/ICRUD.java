@@ -2,7 +2,7 @@ package org.example;
 
 public interface ICRUD {
 
-    int add();
+    void add();
     int update();
     int delete();
     void select(Object o);
