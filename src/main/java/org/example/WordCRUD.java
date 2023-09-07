@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class WordCRUD implements ICRUD{
     ArrayList<Word> w;
     Scanner s;
+    private int i; //반복문
 
     WordCRUD(Scanner s){
         this.s = s;
@@ -41,5 +42,13 @@ public class WordCRUD implements ICRUD{
     @Override
     public void select(Object o) {
 
+    }
+
+    public void listAll(){
+        System.out.println("--------------------------------");
+        for(i=0; i<w.size(); i++){
+            System.out.println((i+1) + " " + w.get(i).toString());
+        }
+        System.out.println("--------------------------------");
     }
 }

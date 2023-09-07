@@ -14,18 +14,15 @@ public class WordMan {
             byte menu = selectMenu();
             System.out.println();
             if(menu ==0) break;
-            else if(menu ==1){
-
-            }
+            else if(menu ==1) wc.listAll();
             else if(menu ==2){
 
             }
             else if(menu ==3){
 
             }
-            else if(menu ==4){
-                wc.add();
-            }
+            else if(menu ==4) wc.add();
+
             else if(menu ==5){
 
             }

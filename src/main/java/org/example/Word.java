@@ -33,4 +33,13 @@ public class Word {
     public void setMeaning(String meaning) {
         this.meaning = meaning;
     }
+
+    @Override
+    public String toString() {
+        String stringForDifficulty;
+        if(difficulty==1) stringForDifficulty = String.format("%-3s", "*");
+        else if(difficulty==2) stringForDifficulty = String.format("%-3s", "**");
+        else stringForDifficulty = String.format("%-3s", "***");
+        return stringForDifficulty + String.format("%15s", newWord) + "  " + meaning;
+    }
 }
