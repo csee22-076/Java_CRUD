@@ -32,9 +32,12 @@ public class WordMan {
             else if(menu ==7){
 
             }
-            else continue;
+            else {
+                System.out.println("다시 시도해주세요.");
+                continue;
+            }
         }
-        System.out.println();
+        System.out.println("프로그램 종료! 다음에 만나요~");
     }
 
     public void printMenu(){
@@ -56,7 +59,7 @@ public class WordMan {
         try{
             return s.nextByte();
         } catch(Exception e) {
-            System.out.println("숫자를 입력해 주세요.");
+            System.out.print("잘못된 형식입니다.");
             s.nextLine();
             return 9;
         }
