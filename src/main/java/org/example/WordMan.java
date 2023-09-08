@@ -2,6 +2,10 @@ package org.example;
 
 import java.util.Scanner;
 
+
+/**
+ * This class manages a CRUD program.
+ */
 public class WordMan {
     Scanner s = new Scanner(System.in);
 

@@ -1,4 +1,8 @@
 package org.example;
+
+/**
+ * This class deals with data of word.
+ */
 public class Word {
     private byte difficulty;
     private String newWord;

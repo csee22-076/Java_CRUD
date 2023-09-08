@@ -2,6 +2,10 @@ package org.example;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+
+/**
+ * This class is for CRUD functions.
+ */
 public class WordCRUD implements ICRUD{
     ArrayList<Word> w;
     Scanner s;
