@@ -44,6 +44,13 @@ public class Word {
         if(difficulty==1) stringForDifficulty = String.format("%-3s", "*");
         else if(difficulty==2) stringForDifficulty = String.format("%-3s", "**");
         else stringForDifficulty = String.format("%-3s", "***");
+        /*for(int i=0; i<difficulty; i++){
+            stringForDifficulty += "*"; //StringBuilder? .append("*")?
+        }*/
         return stringForDifficulty + String.format("%15s", newWord) + "  " + meaning;
+    }
+    
+    public String toSaveString(){
+        return difficulty + "|" + newWord + "|" + meaning;
     }
 }

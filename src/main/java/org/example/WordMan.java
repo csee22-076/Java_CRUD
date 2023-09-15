@@ -12,6 +12,7 @@ public class WordMan {
 
     public void run(){
         WordCRUD wc = new WordCRUD(s);
+        wc.loadFile();
         System.out.println("*** 영단어 마스터 ***");
         while(true){
             printMenu();
@@ -33,9 +34,7 @@ public class WordMan {
             else if(menu ==6){
 
             }
-            else if(menu ==7){
-
-            }
+            else if(menu ==7) wc.saveFile();
             else {
                 System.out.println("다시 시도해주세요.");
                 continue;
@@ -64,8 +63,8 @@ public class WordMan {
             return s.nextByte();
         } catch(Exception e) {
             System.out.print("잘못된 형식입니다.");
-            s.nextLine();
-            return 9;
+            s.nextLine(); // 버퍼 지우기
+            return 8; // 0-7 제외하고 사실 아무 숫자 가능
         }
     }
 }
