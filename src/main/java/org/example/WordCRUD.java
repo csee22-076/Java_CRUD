@@ -18,6 +18,7 @@ public class WordCRUD implements ICRUD{
     int i; //반복문
     byte count;
     final String fileName = "voca.txt";
+    ArrayList<Integer> address = new ArrayList<Integer>(); //
 
     WordCRUD(Scanner s){
         this.s = s;
@@ -43,14 +44,28 @@ public class WordCRUD implements ICRUD{
 
     @Override
     public int update() {
-        /*try{
+        try{
+            //단어 검색
             System.out.print("=> 수정할 단어 검색: ");
             String wordFind = s.next();
-            showList(wordFind);
+            address = showListAndReturnIndex(wordFind);
+            //수정할 번호 입력 후 수정할 단어의 인덱스 저장
             System.out.print("=> 수정할 번호 선택: ");
-            byte numberForUpdate = s.nextByte();
-
-        }*/
+            int numberForUpdate = s.nextInt()-1;
+            int numberOfIndex = address.get(numberForUpdate);
+            //수정할 단어의 뜻 입력
+            s.nextLine(); //버퍼 비우기
+            System.out.print("=> 뜻 입력: ");
+            String newMeaning = s.nextLine();
+            //단어 수정
+            Word wordForUpdate = w.get(numberOfIndex);
+            wordForUpdate.setMeaning(newMeaning);
+            w.set(numberOfIndex,wordForUpdate);
+            System.out.println("\n단어 수정이 성공적으로 되었습니다!!");
+        }catch(Exception e){
+            System.out.println("다시 시도해 주세요.");
+            s.nextLine();
+        }
         return 0;
     }
 
@@ -72,16 +87,19 @@ public class WordCRUD implements ICRUD{
         System.out.println("--------------------------------");
     }
 
-    public void showList(String wordFind){
+    public ArrayList<Integer> showListAndReturnIndex(String wordFind){
+        ArrayList<Integer> address = new ArrayList<Integer>();
         count = 1;
         System.out.println("--------------------------------");
         for(i=0; i<w.size(); i++){
             if(w.get(i).getNewWord().contains(wordFind)) {
                 System.out.println((count) + " " + w.get(i).toString());
+                address.add(i);
                 count ++;
             }
         }
         System.out.println("--------------------------------");
+        return address;
     }
 
     public void saveFile(){
