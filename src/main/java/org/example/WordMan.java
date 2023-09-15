@@ -29,9 +29,7 @@ public class WordMan {
             else if(menu ==4) wc.add();
 
             else if(menu ==5) wc.update();
-            else if(menu ==6){
-
-            }
+            else if(menu ==6) wc.delete();
             else if(menu ==7) wc.saveFile();
             else {
                 System.out.println("다시 시도해주세요.");

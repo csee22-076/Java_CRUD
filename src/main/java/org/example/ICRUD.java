@@ -3,7 +3,7 @@ package org.example;
 public interface ICRUD {
 
     void add();
-    int update();
-    int delete();
+    void update();
+    void delete();
     void select(Object o);
 }

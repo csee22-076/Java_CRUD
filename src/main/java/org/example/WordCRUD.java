@@ -43,7 +43,7 @@ public class WordCRUD implements ICRUD{
     }
 
     @Override
-    public int update() {
+    public void update() {
         try{
             //단어 검색
             System.out.print("=> 수정할 단어 검색: ");
@@ -51,8 +51,7 @@ public class WordCRUD implements ICRUD{
             address = showListAndReturnIndex(wordFind);
             //수정할 번호 입력 후 수정할 단어의 인덱스 저장
             System.out.print("=> 수정할 번호 선택: ");
-            int numberForUpdate = s.nextInt()-1;
-            int numberOfIndex = address.get(numberForUpdate);
+            int numberOfIndex = address.get(s.nextInt()-1);
             //수정할 단어의 뜻 입력
             s.nextLine(); //버퍼 비우기
             System.out.print("=> 뜻 입력: ");
@@ -66,12 +65,31 @@ public class WordCRUD implements ICRUD{
             System.out.println("다시 시도해 주세요.");
             s.nextLine();
         }
-        return 0;
     }
 
     @Override
-    public int delete() {
-        return 0;
+    public void delete() {
+        try{
+            System.out.print("=> 삭제할 단어 검색: ");
+            String wordFind = s.next();
+            address = showListAndReturnIndex(wordFind);
+            System.out.print("=> 삭제할 번호 선택: ");
+            int numberOfIndex = address.get(s.nextInt()-1);
+            s.nextLine();
+            System.out.print("=> 정말로 삭제하시겠습니까?(Y/N) ");
+            String check = s.next();
+            if(check.equalsIgnoreCase("Y")){
+                w.remove(numberOfIndex);
+                System.out.println("\n선택한 단어 삭제 완료 !!!");
+            }
+            else if(check.equalsIgnoreCase("N")){
+                System.out.println("\n취소되었습니다.");
+            }
+            else throw new Exception();
+        }catch(Exception e){
+            System.out.println("다시 시도해 주세요.");
+            s.nextLine();
+        }
     }
 
     @Override
@@ -121,7 +139,7 @@ public class WordCRUD implements ICRUD{
             File file = new File(fileName);
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line;
-            byte count = 0;
+            count = 0;
             while((line=br.readLine()) != null){
                 String[] data = line.split("\\|");
                 byte difficulty = Byte.parseByte(data[0]);
