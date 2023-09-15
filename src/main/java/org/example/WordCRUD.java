@@ -18,7 +18,7 @@ public class WordCRUD implements ICRUD{
     int i; //반복문
     byte count;
     final String fileName = "voca.txt";
-    ArrayList<Integer> address = new ArrayList<Integer>(); //
+    ArrayList<Integer> address = new ArrayList<>(); //
 
     WordCRUD(Scanner s){
         this.s = s;
@@ -75,7 +75,7 @@ public class WordCRUD implements ICRUD{
             address = showListAndReturnIndex(wordFind);
             System.out.print("=> 삭제할 번호 선택: ");
             int numberOfIndex = address.get(s.nextInt()-1);
-            s.nextLine();
+            s.nextLine(); //버퍼 비우기
             System.out.print("=> 정말로 삭제하시겠습니까?(Y/N) ");
             String check = s.next();
             if(check.equalsIgnoreCase("Y")){
@@ -93,31 +93,27 @@ public class WordCRUD implements ICRUD{
     }
 
     @Override
-    public void select(Object o) {
-
+    public void select() {
+        try{
+            System.out.print("=> 레벨(1:초급, 2:중급, 3:고급) 선택: ");
+            byte difficulty = s.nextByte();
+            if(difficulty < 1 || difficulty > 3) throw new Exception();
+            showListAboutDifficulty(difficulty);
+        }catch(Exception e){
+            System.out.println("다시 시도해 주세요.");
+            s.nextLine();
+        }
     }
 
-    public void listAll(){
-        System.out.println("--------------------------------");
-        for(i=0; i<w.size(); i++){
-            System.out.println((i+1) + " " + w.get(i).toString());
+    public void findWord(){
+        try{
+            System.out.print("=> 검색할 단어 입력: ");
+            String wordFind = s.next();
+            showListAndReturnIndex(wordFind);
+        }catch(Exception e){
+            System.out.println("다시 시도해 주세요.");
+            s.nextLine();
         }
-        System.out.println("--------------------------------");
-    }
-
-    public ArrayList<Integer> showListAndReturnIndex(String wordFind){
-        ArrayList<Integer> address = new ArrayList<Integer>();
-        count = 1;
-        System.out.println("--------------------------------");
-        for(i=0; i<w.size(); i++){
-            if(w.get(i).getNewWord().contains(wordFind)) {
-                System.out.println((count) + " " + w.get(i).toString());
-                address.add(i);
-                count ++;
-            }
-        }
-        System.out.println("--------------------------------");
-        return address;
     }
 
     public void saveFile(){
@@ -152,5 +148,40 @@ public class WordCRUD implements ICRUD{
         }catch(IOException e){
             System.out.println("다시 시도해주세요");
         }
+    }
+
+    public ArrayList<Integer> showListAndReturnIndex(String wordFind) {
+        ArrayList<Integer> address = new ArrayList<>();
+        count = 1;
+        System.out.println("--------------------------------");
+        for (i = 0; i < w.size(); i++) {
+            if (w.get(i).getNewWord().contains(wordFind)) {
+                System.out.println((count) + " " + w.get(i).toString());
+                address.add(i);
+                count++;
+            }
+        }
+        System.out.println("--------------------------------");
+        return address;
+    }
+
+    public void listAll() {
+        System.out.println("--------------------------------");
+        for (i = 0; i < w.size(); i++) {
+            System.out.println((i + 1) + " " + w.get(i).toString());
+        }
+        System.out.println("--------------------------------");
+    }
+
+    public void showListAboutDifficulty(byte diff) {
+        count = 1;
+        System.out.println("--------------------------------");
+        for (i = 0; i < w.size(); i++) {
+            if (w.get(i).getDifficulty()==diff) {
+                System.out.println((count) + " " + w.get(i).toString());
+                count++;
+            }
+        }
+        System.out.println("--------------------------------");
     }
 }

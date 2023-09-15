@@ -20,21 +20,14 @@ public class WordMan {
             System.out.println();
             if(menu ==0) break;
             else if(menu ==1) wc.listAll();
-            else if(menu ==2){
-
-            }
-            else if(menu ==3){
-
-            }
+            else if(menu ==2) wc.select();
+            else if(menu ==3) wc.findWord();
             else if(menu ==4) wc.add();
-
             else if(menu ==5) wc.update();
             else if(menu ==6) wc.delete();
             else if(menu ==7) wc.saveFile();
-            else {
-                System.out.println("다시 시도해주세요.");
-                continue;
-            }
+            else System.out.println("다시 시도해주세요.");
+
         }
         System.out.println("프로그램 종료! 다음에 만나요~");
     }
