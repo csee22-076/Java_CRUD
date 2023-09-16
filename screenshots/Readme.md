@@ -1,4 +1,4 @@
-실행 결과 <br> <img src="" width="50%"> <br>
+실행 결과
 
 0. 프로그램 실행화면
 <br> <img src="https://github.com/csee22-076/Java_CRUD/blob/master/screenshots/%EB%A1%9C%EB%94%A9%ED%99%94%EB%A9%B4(%EC%8B%9C%EC%9E%91%ED%99%94%EB%A9%B4).png?raw=true" width="30%"> <br>
