@@ -12,7 +12,6 @@
 2|utility|공익사업, 유용성
 1|lone|혼자인, 단독의, 외딴
 1|glance|흘긋 보다, 대강 훑어보다
-2|conscious|의식하는, 자각하는
 2|overkill|지나침, 과잉
 2|stroll|거닐다, 산책하다
 1|stock|주식, 재고
@@ -33,3 +32,4 @@
 1|reputation|평판, 명성
 2|compassion|동정(심), 연민
 1|ban|금하다, 금지하다
+1|whisper|속삭이다, 일러바치다
